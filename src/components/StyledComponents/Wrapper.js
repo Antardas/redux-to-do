@@ -17,7 +17,7 @@ input{
 export const Wrapper = styled.section`
 background-image: linear-gradient(36deg, #4776E6, #8E54E9);
 min-height: 100vh;
-padding-top: 5rem;
+padding: 5rem 0 2rem 0;
 box-sizing: border-box;
 & .todo-text {
     font-size: 1.3rem;

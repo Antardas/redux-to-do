@@ -7,6 +7,7 @@ import { addTodo } from './action/index';
 
 function App() {
   const [inputData, setInputData] = useState('');
+
   const disPatch = useDispatch();
   return (
     <div className="app">
@@ -25,7 +26,10 @@ function App() {
                 value={inputData}
                 onChange={(e) => setInputData(e.target.value)}
               />
-              <button className='input-button' onClick={() => disPatch(addTodo(inputData))}>
+              <button className='input-button' style={{ cursor: inputData.length >= 1 ? 'pointer' : "no-drop"}} disabled={inputData.length >= 1 ? false : true}  onClick={() => {
+                disPatch(addTodo(inputData))
+                setInputData('')
+              }}>
                 <i className="fas fa-plus input-icon" />
               </button>
             </InputList>

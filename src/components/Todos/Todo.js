@@ -1,11 +1,10 @@
 import React from 'react';
 import { TodoList } from '../StyledComponents/Todocontainer';
 
-const Todo = () => {
+const Todo = ({children}) => {
     return (
         <TodoList>
-
-            {'hello'}
+            <h3>{ children}</h3>
             <button className='delete-button'>
                 <i className="fas fa-trash-alt delete-icon"></i>
             </button>

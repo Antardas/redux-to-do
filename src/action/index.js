@@ -17,6 +17,7 @@ export const removeTodo = (id) => {
 };
 export const removeAllTodo = () => {
     return {
-        type: "REMOVE_ALL_TODO"
+        type: "REMOVE_ALL_TODO",
+        payload : []
     };
 };

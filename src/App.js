@@ -1,13 +1,43 @@
+import React, { useState } from 'react';
 import './App.css';
+import { useDispatch } from 'react-redux';
+import { GlobalStyle, InputList, Wrapper } from './components/StyledComponents/Wrapper';
+import Todos from './components/Todos/Todos';
+import { addTodo } from './action/index';
 
 function App() {
+  const [inputData, setInputData] = useState('');
+  const disPatch = useDispatch();
   return (
     <div className="app">
-      <h1 className='te'>This is Header</h1>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <button className="bg-cyan-500 shadow-lg shadow-cyan-500/50 text-base	">Subscribe</button>
+      <GlobalStyle />
+      <Wrapper>
+        <div className='inner-to-do-container'>
+          <figure>
+            <figcaption className='todo-text'>Add Your List Here 👇</figcaption>
+          </figure>
+          <div className='to-do-container'>
+
+                                {/* Add To do Field */}
+
+            <InputList>
+              <input className='list-input' type="text" placeholder='Add List📝'
+                value={inputData}
+                onChange={(e) => setInputData(e.target.value)}
+              />
+              <button className='input-button' onClick={() => disPatch(addTodo(inputData))}>
+                <i className="fas fa-plus input-icon" />
+              </button>
+            </InputList>
+
+                                  {/* All Todo List */}
+
+            <div className='list-container'>
+              <Todos />
+            </div>
+          </div>
+        </div>
+      </Wrapper>
     </div>
   );
 }

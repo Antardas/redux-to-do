@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { GlobalStyle, InputList, Wrapper } from './components/StyledComponents/Wrapper';
 import Todos from './components/Todos/Todos';
-import { addTodo } from './action/index';
+import { addTodo, removeAllTodo } from './action/index';
 
 function App() {
   const [inputData, setInputData] = useState('');
-
+console.log(useSelector)
   const disPatch = useDispatch();
   return (
     <div className="app">
@@ -22,11 +22,12 @@ function App() {
                                 {/* Add To do Field */}
 
             <InputList>
-              <input className='list-input' type="text" placeholder='Add List📝'
+              <input className='list-input' type="text" placeholder='Add List - 📝'
                 value={inputData}
                 onChange={(e) => setInputData(e.target.value)}
               />
-              <button className='input-button' style={{ cursor: inputData.length >= 1 ? 'pointer' : "no-drop"}} disabled={inputData.length >= 1 ? false : true}  onClick={() => {
+              <button className='input-button' style={{ cursor: inputData.length >= 1 ? 'pointer' : "no-drop" }} disabled={inputData.length >= 1 ? false : true}
+                onClick={() => {
                 disPatch(addTodo(inputData))
                 setInputData('')
               }}>
@@ -41,6 +42,7 @@ function App() {
             </div>
           </div>
         </div>
+        <button className='button' display={"jfej"} cursor="pointer" onClick={() => disPatch(removeAllTodo())}>Remove All</button>
       </Wrapper>
     </div>
   );

@@ -5,11 +5,10 @@ import Todo from './Todo';
 
 const Todos = () => {
     const allTodos = useSelector((state) => state.todoReducer.list);
-    console.log(allTodos);
     return (
         <Todocontainer>
             {
-                allTodos.map(todo => <Todo children={todo.data} key={todo.id}/>)
+                allTodos.map(todo => <Todo id={todo.id} children={todo.data} key={todo.id}/>)
             }
         </Todocontainer>
     );

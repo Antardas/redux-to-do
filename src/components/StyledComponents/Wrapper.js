@@ -14,10 +14,15 @@ input{
 }
 
 `;
+
+// =============== Wrapper Style ==============
 export const Wrapper = styled.section`
 background-image: linear-gradient(36deg, #4776E6, #8E54E9);
 min-height: 100vh;
 padding: 5rem 0 2rem 0;
+display: flex;
+flex-direction: column;
+align-items: center;
 box-sizing: border-box;
 & .todo-text {
     font-size: 1.3rem;
@@ -32,9 +37,15 @@ box-sizing: border-box;
 }
 & .to-do-container {
 }
-
+& .button{
+    background: #fff;
+    border: 0;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.3rem;
+    margin-top: 0.5rem;
+}
 `;
-
+// ============= Input List ===============
 export const InputList = styled.div`
 display: flex;
 position: relative;

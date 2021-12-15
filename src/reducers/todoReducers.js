@@ -14,11 +14,17 @@ const todoReducer = (state = initialData, action) => {
                         data
                     }
                 ]
-            }
+            };
         case "REMOVE_TODO":
-            return {};
+            const newTodo = state.list.filter(state => state.id !== action.payload);
+            console.log(newTodo);
+            return {
+                list: newTodo
+            };
         case "REMOVE_ALL_TODO":
-            return {};
+            return {
+                list: action.payload
+            };
         default: return state;
     }
 

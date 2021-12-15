@@ -22,10 +22,11 @@ console.log(useSelector)
                                 {/* Add To do Field */}
 
             <InputList>
-              <input className='list-input' type="text" placeholder='Add List - 📝'
+              <input onKeyPress={(e) => e.key === 'Enter' && [disPatch(addTodo(inputData)), setInputData('')]} className='list-input' type="text" placeholder='Add List - 📝'
                 value={inputData}
                 onChange={(e) => setInputData(e.target.value)}
               />
+
               <button className='input-button' style={{ cursor: inputData.length >= 1 ? 'pointer' : "no-drop" }} disabled={inputData.length >= 1 ? false : true}
                 onClick={() => {
                 disPatch(addTodo(inputData))
